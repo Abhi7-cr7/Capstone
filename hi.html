@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Global Travels - Explore the World with Us</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 2em;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        .hero {
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1477959858617-67f85664190a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+            margin-bottom: 30px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .destinations {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .destinations-title {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #007bff;
+        }
+
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .destination-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .destination-info {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .destination-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .destination-description {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .booking-info {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .booking-number {
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .offers {
+            background-color: #e9ecef;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .offers-title {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #007bff;
+        }
+
+        .offer-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .offer-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: left;
+        }
+
+        .offer-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .offer-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .offer-price {
+            color: #dc3545;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .offer-details {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .contact-number {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+            margin-top: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #fff;
+                width: 100%;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 0;
+                padding: 15px;
+                text-align: center;
+                border-bottom: 1px solid #eee;
+            }
+
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                color: #555;
+                font-size: 1.5em;
+            }
+
+            .search-bar {
+                flex-direction: column;
+            }
+
+            .search-bar button {
+                width: 100%;
+            }
+
+            .destination-grid {
+                padding: 0 10px;
+            }
+
+            .offer-list {
+                padding: 0 10px;
+            }
+        }
+
+        .hamburger {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">My Global Travels</div>
+            <ul id="mainNav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#offers">Special Offers</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            <div class="hamburger">&#9776;</div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Discover Your Next Adventure</h1>
+            <p class="hero-subtitle">Explore amazing destinations and plan your dream trip with us.</p>
+        </div>
+    </section>
+
+    <section id="destinations" class="destinations container">
+        <h2 class="destinations-title">Explore Our Destinations</h2>
+        <div class="destination-grid">
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1529655683826-aba9b3e7dc3c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Paris">
+                <div class="destination-info">
+                    <h3 class="destination-name">Paris, France</h3>
+                    <p class="destination-description">Experience the romance and iconic landmarks of the City of Lights.</p>
+                    <p class="booking-info">To book this trip, please call: <span class="booking-number">+91 9876543210</span></p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1519681393784-d1202a94c310?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bali">
+                <div class="destination-info">
+                    <h3 class="destination-name">Bali, Indonesia</h3>
+                    <p class="destination-description">Discover the serene beaches, spiritual retreats, and vibrant culture of Bali.</p>
+                    <p class="booking-info">For booking inquiries, call: <span class="booking-number">+91 8765432109</span></p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1503220370289-cfb027fb3d1c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Santorini">
+                <div class="destination-info">
+                    <h3 class="destination-name">Santorini, Greece</h3>
+                    <p class="destination-description">Enjoy the breathtaking sunsets and unique architecture of this Aegean paradise.</p>
+                    <p class="booking-info">Contact us to book your trip: <span class="booking-number">+91 7654321098</span></p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1493246572117-1a6a26e4e29d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kyoto">
+                <div class="destination-info">
+                    <h3 class="destination-name">Kyoto, Japan</h3>
+                    <p class="destination-description">Immerse yourself in the traditional gardens, temples, and geisha culture of Kyoto.</p>
+                    <p class="booking-info">Call our travel experts to book: <span class="booking-number">+91 6543210987</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="offers" class="offers">
+        <h2 class="offers-title container">Special Offers</h2>
+        <div class="offer-list container">
+            <div class="offer-card">
+                <img class="offer-image" src="https://images.unsplash.com/photo-1518544906140-2123475cf122?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Maldives Offer">
+                <h3 class="offer-title">Luxury Escape to the Maldives</h3>
+                <p class="offer-price">Starting from ₹75,000 per person</p>
+                <p class="offer-details">7 Nights all-inclusive stay with private beach access.</p>
+                <p class="contact-info">Book this offer now! Call: <span class="contact-number">+91 9988776655</span></p>
+            </div>
+            <div class="offer-card">
+                <img class="offer-image" src="https://images.unsplash.com/photo-1551882544-111a011b119a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="European Tour Offer">
+                <h3 class="offer-title">Grand European Tour</h3>
+                <p class="offer-price">Starting from ₹1,20,000 per person</p>
+                <p class="offer-details">10 Days exploring 5 iconic European cities.</p>
+                <p class="contact-info">For more details and booking, call: <span class="contact-number">+91 8877665544</span></p>
+            </div>
+            <div class="offer-card">
+                <img class="offer-image" src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Thailand Adventure">
+                <h3 class="offer-title">Amazing Thailand Adventure</h3>
+                <p class="offer-price">Starting from ₹55,000 per person</p>
+                <p class="offer-details">Explore the beaches and culture of Thailand for 8 days.</p>
+                <p class="contact-info">To book your Thai adventure, call: <span class="contact-number">+91 7766554433</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container" style="text-align: center; padding: 40px 0;">
+        <h2>Contact Us</h2>
+        <p>For any inquiries or to book a trip, please feel free to call us.</p>
+        <p style="font-size: 1.2em; font-weight: bold
